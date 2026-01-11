@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Menu | Asif Foods</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+<header>
+    <h3>Our Menu</h3>
+    <nav>
+        <a href="index.html" class="nav-icon">🏠︎</a>
+        <a href="cart.html" class="nav-icon cart-icon">🛒</a>
+    </nav>
+</header>
+
+
+<section>
+    <h2>Explore Our Delicious Menu</h2>
+    <div class="cards" id="menuCards"></div>
+</section>
+
+<div style="text-align:center; margin:30px;">
+    <a href="cart.html" class="btn">View Cart</a>
+</div>
+
+<script src="js/script.js"></script>
+
+<script>
+const menu = [
+    { name:"Chole Bhature", image:"images/chole.jpg.png", prices:{ half:10, full:20 }},
+    { name:"Kaleji Bhature", image:"images/kaleji-bhature.jpg.png", prices:{ half:25, full:45 }},
+    { name:"Kaleji Paratha", image:"images/kaleji-paratha.jpg.png", prices:{ half:25, full:50 }},
+    { name:"Biryani", image:"images/biryani.jpg.png", prices:{ half:50, full:100 }},
+
+    { name:"Chicken Chilli", image:"images/chicken-chilli.jpg.png", prices:{ half:50, full:100 }},
+    { name:"Paneer Chilli", image:"images/paneer-chilli.jpg.png", prices:{ half:50, full:100 }},
+    { name:"Chicken Lollipop", image:"images/chicken-lollipop.jpg.png", prices:{ half:60, full:100 }},
+
+    { name:"Veg Chowmein", image:"images/veg-chowmein.jpg.png", prices:{ half:20, full:30 }},
+    { name:"Paneer Chowmein", image:"images/paneer-chowmein.jpg.png", prices:{ half:50, full:100 }},
+    { name:"Egg Chowmein", image:"images/egg-chowmein.jpg.png", prices:{ half:30, full:60 }},
+    { name:"Chicken Chowmein", image:"images/chicken-chowmein.jpg.png", prices:{ half:50, full:100 }},
+
+    { name:"Veg Pasta", image:"images/veg-pasta.jpg.png", prices:{ half:20, full:30 }},
+    { name:"Paneer Pasta", image:"images/paneer-pasta.jpg.png", prices:{ half:50, full:100 }},
+    { name:"Egg Pasta", image:"images/egg-pasta.jpg.png", prices:{ half:30, full:60 }},
+    { name:"Chicken Pasta", image:"images/chicken-pasta.jpg.png", prices:{ half:50, full:100 }},
+
+    { name:"Veg Roll", image:"images/veg-roll.jpg.png", singlePrice:15 },
+    { name:"Paneer Roll", image:"images/paneer-roll.jpg.png", singlePrice:30 },
+    { name:"Egg Roll", image:"images/egg-roll.jpg.png", variants:[
+        { label:"Single Egg", price:30 },
+        { label:"Double Egg", price:40 }
+    ]},
+
+    { name:"Chicken Roll", image:"images/chicken-roll.jpg.png", singlePrice:50 },
+    
+    { name:"Cold Drink", image:"images/cold-drink.jpg.png", variants:[
+        { label:"mini", price:10 },
+        { label:"250ml", price:25 },
+        { label:"500ml", price:50 },
+        { label:"1 Litre", price:90 }
+        
+    ]},
+];
+
+const box = document.getElementById("menuCards");
+
+menu.forEach(item => {
+
+    // HALF / FULL ITEMS
+    if (item.prices) {
+        box.innerHTML += `
+        <div class="card menu-card">
+            <img src="${item.image}" alt="${item.name}">
+            <h3>${item.name}</h3>
+            <p><strong>Half ₹${item.prices.half} | Full ₹${item.prices.full}</strong></p>
+            <div style="display:flex; gap:10px; justify-content:center;">
+                <button class="btn" onclick="addToCart('${item.name}','Half',${item.prices.half},'${item.image}')">Half</button>
+                <button class="btn" onclick="addToCart('${item.name}','Full',${item.prices.full},'${item.image}')">Full</button>
+            </div>
+        </div>`;
+    }
+
+    // SINGLE PRICE ITEMS
+    else if (item.singlePrice) {
+        box.innerHTML += `
+        <div class="card menu-card">
+            <img src="${item.image}" alt="${item.name}">
+            <h3>${item.name}</h3>
+            <p><strong>₹${item.singlePrice}</strong></p>
+            <button class="btn" onclick="addToCart('${item.name}','Regular',${item.singlePrice},'${item.image}')">
+                Add to Cart
+            </button>
+        </div>`;
+    }
+
+    // VARIANT ITEMS (Egg Roll)
+    else if (item.variants) {
+        let buttons = "";
+        item.variants.forEach(v => {
+            buttons += `
+                <button class="btn"
+                    onclick="addToCart('${item.name}','${v.label}',${v.price},'${item.image}')">
+                    ${v.label} ₹${v.price}
+                </button>`;
+        });
+
+        box.innerHTML += `
+        <div class="card menu-card">
+            <img src="${item.image}" alt="${item.name}">
+            <h3>${item.name}</h3>
+            <div style="display:flex; gap:10px; justify-content:center; flex-wrap:wrap;">
+                ${buttons}
+            </div>
+        </div>`;
+    }
+});
+</script>
+<!-- TOAST -->
+<div id="toast" class="toast"></div>
+
+</body>
+</html>

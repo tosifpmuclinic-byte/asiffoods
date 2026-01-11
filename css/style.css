@@ -1,0 +1,613 @@
+/* Accessibility: Focus styles for buttons and links */
+a:focus, button:focus, .btn:focus {
+    outline: 2px solid #ff4d00;
+    outline-offset: 2px;
+    box-shadow: 0 0 0 2px #fff, 0 0 0 4px #ff4d00;
+}
+
+/* Improve tap target size for mobile */
+@media (max-width: 900px) {
+    a, button, .btn {
+        min-height: 44px;
+        min-width: 44px;
+    }
+}
+
+/* Ensure readable font size on mobile */
+@media (max-width: 600px) {
+    body, input, textarea, button, .btn {
+        font-size: 1.05em;
+    }
+    section {
+        padding: 32px 6vw;
+    }
+    .card {
+        padding: 12px;
+    }
+    .btn {
+        padding: 12px 18px;
+        font-size: 1em;
+    }
+}
+
+/* Ensure color contrast for buttons */
+.btn, .map-btn {
+    background: #ff4d00;
+    color: #fff;
+}
+.btn:hover, .map-btn:hover {
+    background: #e04300;
+    color: #fff;
+}
+/* =========================
+   GENERAL STYLES
+========================= */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+}
+
+body {
+    background: #e76901;
+    color: #333;
+}
+
+/* =========================
+   HEADER
+========================= */
+header {
+    background: #111;
+    color: white;
+    padding: 15px 25px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: relative;
+}
+
+header h1 {
+    color: #ff4d00;
+}
+
+/* =========================
+   HAMBURGER BUTTON
+========================= */
+.hamburger {
+    display: none;
+    flex-direction: column;
+    width: 38px;
+    height: 38px;
+    background: none;
+    border: none;
+    cursor: pointer;
+}
+
+.hamburger span {
+    height: 4px;
+    width: 100%;
+    background: #ff4d00;
+    margin: 5px 0;
+    border-radius: 3px;
+}
+
+/* =========================
+   MOBILE MENU (Menu + Cart)
+========================= */
+.mobile-menu {
+    position: absolute;
+    top: 70px;
+    right: 15px;
+    background: #181818;
+    border-radius: 14px;
+    box-shadow: 0 12px 30px rgba(0,0,0,0.4);
+    display: none;
+    flex-direction: column;
+    min-width: 170px;
+    z-index: 1000;
+}
+
+.mobile-menu a {
+    color: white;
+    padding: 15px 20px;
+    text-decoration: none;
+    border-bottom: 1px solid #333;
+    font-size: 16px;
+}
+
+.mobile-menu a:last-child {
+    border-bottom: none;
+}
+
+.mobile-menu a:hover {
+    background: #ff4d00;
+}
+
+/* =========================
+   HERO SECTION
+========================= */
+.hero {
+    height: 50vh;
+    max-width: 1100px;
+    margin: 0 auto 30px auto;
+    background: linear-gradient(rgba(0,0,0,.6), rgba(0,0,0,.6)),
+                url("../images/hero.jpg.png") center/cover no-repeat;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    color: rgb(255, 102, 0);
+    
+}
+
+.hero h2 {
+    font-size: 48px;
+}
+
+.hero p {
+    margin: 15px 0;
+    font-size: 18px;
+}
+
+/* =========================
+   BUTTON
+========================= */
+.btn {
+    background: #ff4d00;
+    color: white;
+    padding: 12px 30px;
+    border-radius: 30px;
+    text-decoration: none;
+    border: none;
+    cursor: pointer;
+}
+
+/* =========================
+   SECTIONS
+========================= */
+section {
+    padding: 60px 30px;
+}
+
+section h2 {
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+/* =========================
+   CARDS
+========================= */
+.cards {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px,1fr));
+    gap: 25px;
+}
+
+.card {
+    background: white;
+    border-radius: 15px;
+    padding: 20px;
+    box-shadow: 0 10px 20px rgba(0,0,0,.1);
+    text-align: center;
+    transition: 0.3s;
+}
+
+.card:hover {
+    transform: translateY(-6px);
+}
+
+.card img {
+    width: 100%;
+    border-radius: 15px;
+}
+
+.card h3 {
+    color: #ff4d00;
+    margin: 10px 0;
+}
+
+/* =========================
+   FOOTER
+========================= */
+footer {
+    background: #111;
+    color: white;
+    text-align: center;
+    padding: 18px;
+}
+
+/* =========================
+   STICKY ORDER BUTTON
+========================= */
+.sticky-order {
+    display: none;
+}
+
+/* =========================
+   MOBILE RESPONSIVE
+========================= */
+@media (max-width: 900px) {
+
+    .hamburger {
+        display: flex;
+    }
+
+    .hero h2 {
+        font-size: 30px;
+    }
+
+    .sticky-order {
+        display: block;
+        position: fixed;
+        bottom: 15px;
+        left: 50%;
+        transform: translateX(-50%);
+        background: #ff4d00;
+        color: white;
+        padding: 14px 35px;
+        border-radius: 40px;
+        text-decoration: none;
+        z-index: 999;
+    }
+}
+
+/* =========================
+   CART PAGE – BIG & CLEAN UI
+========================= */
+
+.cart-box {
+    max-width: 900px;
+    margin: auto;
+    background: #ffffff;
+    padding: 25px;
+    border-radius: 20px;
+}
+
+/* Single cart item */
+.cart-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px;
+    margin-bottom: 18px;
+    background: #f9f9f9;
+    border-radius: 16px;
+    box-shadow: 0 8px 18px rgba(0,0,0,0.08);
+}
+
+/* Item name */
+.cart-item strong {
+    font-size: 22px;
+    color: #ff4d00;
+}
+
+/* Quantity buttons */
+.cart-item button {
+    background: #ff4d00;
+    color: #fff;
+    border: none;
+    padding: 8px 18px;
+    font-size: 20px;
+    border-radius: 10px;
+    cursor: pointer;
+    margin: 0 8px;
+}
+
+.cart-item button:hover {
+    background: #e04300;
+}
+
+/* Qty number */
+.cart-item span {
+    font-size: 20px;
+    font-weight: 600;
+}
+
+/* Price */
+.cart-item .price {
+    font-size: 22px;
+    font-weight: bold;
+}
+
+/* Total price text */
+#totalPrice {
+    font-size: 26px;
+    color: #ffffff;
+    font-weight: bold;
+}
+
+/* =========================
+   CUSTOMER DETAILS MODAL
+========================= */
+.modal-overlay {
+    position: fixed;
+    top: 0; left: 0; right: 0; bottom: 0;
+    background: rgba(0,0,0,0.45);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 2000;
+    padding: 16px;
+}
+.modal-content {
+    background: #fff;
+    border-radius: 18px;
+    max-width: 370px;
+    width: 100%;
+    padding: 28px 22px 18px 22px;
+    box-shadow: 0 8px 32px rgba(0,0,0,0.18);
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+.modal-content h2 {
+    font-size: 1.3rem;
+    color: #ff4d00;
+    margin-bottom: 10px;
+    text-align: center;
+}
+.modal-content label {
+    font-weight: 500;
+    margin-top: 8px;
+    margin-bottom: 2px;
+    display: block;
+}
+.modal-content input,
+.modal-content textarea {
+    width: 100%;
+    padding: 10px 12px;
+    border: 1.5px solid #ddd;
+    border-radius: 8px;
+    font-size: 1rem;
+    margin-bottom: 6px;
+    background: #fafafa;
+    resize: none;
+    transition: border 0.2s;
+}
+.modal-content input:focus,
+.modal-content textarea:focus {
+    border: 1.5px solid #ff4d00;
+    outline: none;
+}
+.modal-content textarea {
+    min-height: 60px;
+    max-height: 120px;
+}
+.modal-actions {
+    display: flex;
+    gap: 10px;
+    margin-top: 10px;
+    justify-content: center;
+}
+.btn-cancel {
+    background: #bbb !important;
+    color: #222 !important;
+}
+@media (max-width: 600px) {
+    .modal-content {
+        max-width: 98vw;
+        padding: 18px 6vw 12px 6vw;
+    }
+    .modal-content h2 {
+        font-size: 1.1rem;
+    }
+    .modal-content input,
+    .modal-content textarea {
+        font-size: 0.98rem;
+        padding: 9px 8px;
+    }
+}
+ 
+/* =========================
+   CART IMAGE STYLES
+========================= */
+.cart-left {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+}
+
+.cart-img {
+    width: 80px;
+    height: 80px;
+    border-radius: 14px;
+    object-fit: cover;
+    box-shadow: 0 6px 15px rgba(0,0,0,0.15);
+}
+
+/* =========================
+   EMPTY CART ANIMATION
+========================= */
+.empty-cart {
+    text-align: center;
+    padding: 40px 20px;
+    animation: fadeIn 0.6s ease-in-out;
+}
+
+.cart-icon {
+    font-size: 70px;
+    animation: bounce 1.6s infinite;
+}
+
+.empty-cart h2 {
+    margin-top: 15px;
+    font-size: 22px;
+}
+
+.empty-cart p {
+    color: #777;
+    margin-top: 8px;
+}
+
+/* Fade effect */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(15px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Cart bounce */
+@keyframes bounce {
+    0%, 100% {
+        transform: translateY(0);
+    }
+    50% {
+        transform: translateY(-10px);
+    }
+}
+
+/* =========================
+   HEADER ICON STYLING
+========================= */
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 14px 20px;
+    background: #ffffff;
+    box-shadow: 0 4px 14px rgba(0,0,0,0.08);
+    position: sticky;
+    top: 0;
+    z-index: 100;
+}
+
+header h3 {
+    font-size: 22px;
+    font-weight: 700;
+}
+
+nav {
+    display: flex;
+    gap: 18px;
+}
+
+/* ICON DESIGN */
+.nav-icon {
+    font-size: 30px;               /* size bada */
+    text-decoration: none;
+    padding: 10px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.35s ease;
+    position: relative;
+}
+
+/* HOVER EFFECT */
+.nav-icon:hover {
+    transform: scale(1.2) rotate(5deg);
+    background: rgba(0, 0, 0, 0.06);
+}
+
+/* CART SPECIAL PULSE */
+.cart-icon {
+    animation: pulse 2s infinite;
+}
+
+/* PULSE ANIMATION */
+@keyframes pulse {
+    0% {
+        transform: scale(1);
+    }
+    50% {
+        transform: scale(1.15);
+    }
+    100% {
+        transform: scale(1);
+    }
+}
+
+.toast {
+    position: fixed;
+    bottom: 30px;
+    left: 50%;
+    transform: translateX(-50%) translateY(100px);
+    background: #111;
+    color: #fff;
+    padding: 14px 26px;
+    border-radius: 30px;
+    font-size: 15px;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.35);
+    opacity: 0;
+    transition: all 0.4s ease;
+    z-index: 3000;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.toast.show {
+    opacity: 1;
+    transform: translateX(-50%) translateY(0);
+}
+
+.toast.success {
+    background: linear-gradient(135deg, #ff4d00, #ff7a18);
+}
+
+/* =========================
+   TOAST
+========================= */
+.toast {
+    position: fixed;
+    bottom: 30px;
+    left: 50%;
+    transform: translateX(-50%) translateY(80px);
+    background: linear-gradient(135deg,#ff4d00,#ff7a18);
+    color: #fff;
+    padding: 14px 26px;
+    border-radius: 30px;
+    font-size: 15px;
+    box-shadow: 0 10px 25px rgba(0,0,0,.35);
+    opacity: 0;
+    transition: .4s ease;
+    z-index: 3000;
+}
+
+.toast.show {
+    opacity: 1;
+    transform: translateX(-50%) translateY(0);
+}
+
+/* =========================
+   EMPTY CART ANIMATION
+========================= */
+.empty-cart {
+    text-align: center;
+    padding: 50px 20px;
+}
+
+.cart-icon {
+    font-size: 80px;
+    animation: bounce 1.5s infinite;
+}
+
+@keyframes bounce {
+    0%,100% { transform: translateY(0); }
+    50% { transform: translateY(-15px); }
+}
+
+/* =========================
+   CART ITEM IMAGE FIX
+========================= */
+.cart-item img {
+    width: 80px;
+    height: 80px;
+    border-radius: 14px;
+    object-fit: cover;
+}
+
+/* QTY */
+.qty-box {
+    margin-top: 8px;
+}
+.qty-box button {
+    padding: 6px 14px;
+}

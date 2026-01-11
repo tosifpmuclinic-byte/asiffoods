@@ -1,0 +1,262 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Contact Us | Asif Foods</title>
+
+<!-- FONT AWESOME -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
+<style>
+body{
+    margin:0;
+    font-family: 'Segoe UI', sans-serif;
+    background: linear-gradient(135deg,#ff4d00,#ff9800);
+    color:#333;
+}
+
+/* HEADER */
+header{
+    background:#fff;
+    padding:15px 30px;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+}
+header h1{margin:0;color:#ff4d00;}
+nav a{
+    margin-left:15px;
+    text-decoration:none;
+    color:#333;
+    font-weight:600;
+}
+nav a.active{color:#ff4d00;}
+
+/* HERO */
+.hero{
+    text-align:center;
+    color:#fff;
+    padding:60px 20px;
+}
+.hero h2{font-size:36px;margin-bottom:10px;}
+.hero p{opacity:0.9;}
+
+/* CONTACT */
+.contact-section{
+    padding:60px 20px;
+}
+.contact-container{
+    max-width:1100px;
+    margin:auto;
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:40px;
+}
+
+/* LEFT INFO */
+.contact-info{
+    background:rgba(255,255,255,0.95);
+    border-radius:20px;
+    padding:30px;
+    box-shadow:0 20px 50px rgba(0,0,0,0.2);
+}
+.contact-info h3{
+    margin-bottom:20px;
+    color:#ff4d00;
+}
+.info-block{
+    display:flex;
+    gap:15px;
+    margin-bottom:18px;
+}
+.info-block .icon{
+    font-size:22px;
+    color:#ff4d00;
+}
+.whatsapp-btn{
+    display:block;
+    margin-top:25px;
+    background:#25D366;
+    color:#fff;
+    padding:14px;
+    border-radius:50px;
+    text-align:center;
+    text-decoration:none;
+    font-size:18px;
+}
+.whatsapp-btn:hover{opacity:0.9}
+
+/* FORM */
+.contact-form{
+    background:rgba(255,255,255,0.15);
+    backdrop-filter: blur(10px);
+    border-radius:20px;
+    padding:35px;
+    box-shadow:0 20px 50px rgba(0,0,0,0.25);
+    color:#fff;
+}
+.contact-form h3{
+    margin-bottom:20px;
+}
+.glass-form .input-group{
+    display:flex;
+    gap:15px;
+}
+.floating-label{
+    position:relative;
+    width:100%;
+    margin-bottom:20px;
+}
+.floating-label input,
+.floating-label textarea{
+    width:100%;
+    padding:14px;
+    border:none;
+    border-radius:12px;
+    outline:none;
+    font-size:16px;
+}
+.floating-label label{
+    position:absolute;
+    top:-10px;
+    left:14px;
+    background:#ff6a00;
+    padding:2px 8px;
+    font-size:12px;
+    border-radius:6px;
+    color:#fff;
+}
+.send-btn{
+    width:100%;
+    background:#fff;
+    color:#ff4d00;
+    padding:14px;
+    border:none;
+    border-radius:50px;
+    font-size:18px;
+    cursor:pointer;
+}
+.send-btn:hover{
+    background:#ffe0d2;
+}
+
+/* FOOTER */
+footer{
+    text-align:center;
+    padding:15px;
+    background:#fff;
+    margin-top:50px;
+}
+
+/* RESPONSIVE */
+@media(max-width:768px){
+    .contact-container{
+        grid-template-columns:1fr;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<header>
+<h1>Asif Foods</h1>
+ <nav>
+        <a href="index.html" class="nav-icon">🏠︎</a>
+        <a href="cart.html" class="nav-icon cart-icon">🛒</a>
+        <a href="menu.html" class="nav-icon">🍽️</a>
+    </nav>
+</header>
+
+<section class="hero">
+<h2>Contact Asif Foods</h2>
+<p>Fast delivery • Fresh food • Best taste 🍽️</p>
+</section>
+
+<section class="contact-section">
+<div class="contact-container">
+
+<!-- INFO -->
+<div class="contact-info">
+<h3><i class="fas fa-headset"></i> Get in Touch</h3>
+
+<div class="info-block">
+<span class="icon"><i class="fas fa-phone"></i></span>
+<div>
+<strong>Call / WhatsApp</strong><br>
+<a href="tel:8969374142">+91 89693 74142</a>
+</div>
+<div>
+<strong>Email</strong><br>
+<a href="mailto:asiffoodskmt@gmail.com">asiffoodskmt@gmail.com</a>
+</div>
+</div>
+
+<div class="info-block">
+<span class="icon"><i class="fas fa-map-marker-alt"></i></span>
+<div>
+<strong>Address</strong><br>
+Karmatar Basti,<br>Jamtara, India
+</div>
+</div>
+
+<div class="info-block">
+<span class="icon"><i class="fas fa-clock"></i></span>
+<div>
+<strong>Hours</strong><br>
+08:00 AM – 10:00 PM
+</div>
+</div>
+
+<a class="whatsapp-btn"
+href="https://wa.me/918969374142?text=Hello%20Asif%20Foods,%20I%20want%20to%20place%20an%20order."
+target="_blank">
+<i class="fab fa-whatsapp"></i> Order on WhatsApp
+</a>
+</div>
+
+<!-- FORM -->
+<div class="contact-form">
+<h3><i class="fas fa-paper-plane"></i> Quick Message</h3>
+
+<form class="glass-form" onsubmit="sendMessage();return false;">
+<div class="input-group">
+<div class="floating-label">
+<input type="text" id="name" required>
+<label>Your Name</label>
+</div>
+<div class="floating-label">
+<input type="tel" id="phone" required>
+<label>Mobile</label>
+</div>
+</div>
+
+<div class="floating-label">
+<textarea id="message" rows="5" required></textarea>
+<label>Your Message</label>
+</div>
+
+<button class="send-btn">
+<i class="fab fa-whatsapp"></i> Send via WhatsApp
+</button>
+</form>
+</div>
+
+</div>
+</section>
+
+
+<script>
+function sendMessage(){
+let n=document.getElementById("name").value;
+let p=document.getElementById("phone").value;
+let m=document.getElementById("message").value;
+
+let txt=`Hello Asif Foods,%0A👤 Name: ${n}%0A📞 Phone: ${p}%0A💬 Message: ${m}`;
+window.open(`https://wa.me/918969374142?text=${txt}`,'_blank');
+}
+</script>
+
+</body>
+</html>
