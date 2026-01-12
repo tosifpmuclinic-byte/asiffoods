@@ -186,7 +186,7 @@ function submitCustomerForm(e) {
     }
 
     let total = 0;
-    let msg = `Hello Asif Foods,%0A%0AName: ${name}%0APhone: ${phone}%0AAddress: ${address}%0A%0AOrder:%0A`;
+    let msg = `Hello Asif Foods please confirm my order if any query plz call,%0A%0AName: ${name}%0APhone: ${phone}%0AAddress: ${address}%0A%0AOrder:%0A`;
 
     cart.forEach(i => {
         const t = i.price * i.qty;
